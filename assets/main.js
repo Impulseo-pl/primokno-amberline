@@ -757,3 +757,13 @@
 
 /* === licznik otwarć demo (buy-signal) v3 — geo po stronie serwera === */
 (function(){try{if(String(location.protocol).indexOf('http')!==0)return;try{if(/[?&#]team=1/.test(location.search+location.hash)){localStorage.setItem('nb_team','1');}}catch(e){}try{if(localStorage.getItem('nb_team')==='1')return;}catch(e){}if(/crm-newbeginning|crm\.impulseo\.pl/.test(document.referrer||''))return;try{if(navigator.webdriver)return;}catch(e){}try{if(/^https?:\/\/(kris20032|impulseo-pl)\.github\.io\/?$/i.test(document.referrer||''))return;}catch(e){}if(sessionStorage.getItem('_dv'))return;sessionStorage.setItem('_dv','1');var seg=(location.pathname.split('/').filter(Boolean)[0])||'';var base=location.origin+(seg?('/'+seg):'');var ua='';try{ua=(navigator.userAgent||'').slice(0,300);}catch(e){}var EP='https://zngfubfinbojfgaxdrbf.supabase.co/functions/v1/demo-view';try{fetch(EP,{method:'POST',keepalive:true,headers:{'Content-Type':'text/plain'},body:JSON.stringify({demo_url:base,page:location.pathname,referrer:(document.referrer||null),user_agent:(ua||null)})}).catch(function(){});}catch(e){}}catch(e){}})();
+
+// Skóra „beż + grafit": strzałki przewijanych kart oferty
+(function () {
+  var tr = document.querySelector('.kw-track');
+  if (!tr) return;
+  function krok(d) { var c = tr.querySelector('.kw-svc'); var w = c ? c.getBoundingClientRect().width + 30 : tr.clientWidth / 3; tr.scrollBy({ left: d * w, behavior: 'smooth' }); }
+  var p = document.querySelector('.kw-prev'), n = document.querySelector('.kw-next');
+  if (p) p.addEventListener('click', function () { krok(-1); });
+  if (n) n.addEventListener('click', function () { krok(1); });
+})();
